@@ -14,10 +14,10 @@ app.get("/libraries",checkpermission("librarian"),function(req,res){
     return res.send({route: " /authors",permission: true})
   })
 function logger(req,res,next){
-if(res.path="/books"){
+if(res.path=="/books"){
 next();
 }
-else if(res.path="/libraries"){
+else if(res.path=="/libraries"){
 next();
 }
 else{
