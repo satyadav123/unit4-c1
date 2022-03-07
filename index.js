@@ -5,7 +5,7 @@ app.get("/books",function(req,res){
 
   return res.send({route: "/books"})
 })
-app.get("/libraries",checkpermission("libraries"),function(req,res){
+app.get("/libraries",checkpermission("librarian"),function(req,res){
 
     return res.send({route: "/libraries",permission: true})
   })
@@ -27,20 +27,17 @@ next()
 function checkpermission(data){
 
 return function permission(req,res,next){
-if(data="libraries"){
-    next();
+if(data=="librarian"){
+   return next();
 }
-else if(data="authors"){
-    next()
+else if(data=="authors"){
+    return next();
 }
 else{
-    res.send("permission not allowed")
+   return res.send("permission not allowed")
 }
 }
 }
-
-
-
 
   app.listen(2400,()=>{
 
